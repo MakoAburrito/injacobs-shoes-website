@@ -1,0 +1,592 @@
+*
+{
+margin: 0;
+padding: 0;
+
+font-family: 'Poppins', sans-serif;
+}
+body{
+    width:100%;
+}
+html {
+    width:100%;
+    scroll-behavior: smooth;
+}
+/*Space before nav and in parts of the content*/
+.Space{
+    height: 125px;
+    width: 100%;
+    background-color:white;
+}
+/*Navigation*/
+.Nav-bar::after{
+    content: "";
+    position: absolute;
+    background: linear-gradient(to top, #31a5d3f6, transparent);
+    width: 100%;
+    height: 125px;
+    left: 0;
+    bottom: 1;
+    Background-color: #1e73be;
+    z-index: 0;
+   }
+.Nav-bar,.menu,.logo
+{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    z-index: 1;
+    height: 125px;
+    width: 100%;
+}
+.logo
+{
+    list-style: none;
+    align-items: center;
+    flex: 1 1 auto;
+    height: 20px;
+    margin: 0px 0px 100px 5px;
+
+}
+.logo-img{
+    align-items: center;
+    height: 125px;
+
+}
+.menu{
+    display: flex;
+    justify-content: right;
+}
+.menu-item 
+{
+    margin: 0px 8px;
+    list-style: none;
+
+}
+header .menu-item a{
+    color: whitesmoke;
+    transition: ease-in-out 0.3s;
+    text-decoration: none;
+    text-shadow: 1px 1px 1.5px pink;
+}
+.menu-item > a:hover
+{
+
+    color:#23252B;
+
+}
+.menu-item > a:hover ::before
+{
+    color:#23252B;
+
+}
+.button-item 
+{
+    margin: 0px 5px;
+    list-style: none;
+
+}
+header .button-item a{
+    color: whitesmoke;
+    padding: 10px 20px;
+    background-color: #5acaf7;
+    border-radius: 5px;
+    border-bottom: solid 4px #227a9cf6;
+    border-right: solid 4px #31a5d3f6;
+    transition: 0.3s;
+    text-decoration: none;
+    text-shadow: 1px 1px 2.5px pink;
+}
+.button-item > a:hover
+{
+    color:rgb(227, 245, 253);
+    background-color:White;
+    padding: 9.5px 19.5px;
+    border-bottom: solid 3px rgb(70, 177, 141);
+    border-right: solid 2px aquamarine;
+    text-shadow: 1px 1px 2.5px black;
+    transition: ease-in-out 0.3s;
+}
+/*Tab icon for sliding menu for mobile*/
+.tab-icon
+{
+    visibility: hidden;
+    padding: 0px 10px;
+    list-style: none;
+
+}
+.tab-icon > a:link
+{
+    text-decoration: none;
+}
+/*Media query for Nav bar*/
+@media only screen and (max-width: 896px){
+    .menu-item{
+        display: none;
+        transition: ease-in-out 0.3s;
+    }
+}
+@media only screen and (max-width: 692px){
+    .button-item:nth-child(4){
+        display: none;
+    }
+}
+@media only screen and (max-width: 500px){
+    .button-item:nth-child(5){
+        display: none;
+    }
+}
+/*Navigation end*/
+
+/*Body content of the webpage*/
+/*Huge image container (possible slider)*/
+.slider{
+    clip-path: polygon(50% 100%, 100% 80%, 100% 0, 0 0, 0 80%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("images/walk on concreet shoes.jpg");
+    height: 600px;
+    width: 100%;
+
+    /*For the text in the slider*/
+    color: white;
+    font-size: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider:before{
+ content: "";
+ position: absolute;
+ background: linear-gradient(to top,  #31a5d381, transparent);
+ width: 100%;
+ height: 600px;
+ bottom: 10;
+}
+
+@media only screen and (max-width: 1250px){
+    .slider{
+        font-size:3em;
+    }
+}
+@media only screen and (max-width: 610px){
+    .slider {
+        font-size: 1.8em;
+    }
+}
+@media only screen and (max-width: 360px){
+    .slider {
+        font-size: 1.7em;
+    }
+}
+/*The start of things im figuring out*/
+
+/*The title above the Cards*/
+.Space-content{
+    width: 100%;
+    height: 125px;
+    background-color:white;
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em;
+}
+@media only screen and (max-width: 1050px){
+    .Space-content{
+        font-size:2em;
+        height: 80px;
+    }
+}
+@media only screen and (max-width: 700px){
+    .Space-content{
+        font-size: 1.5em;
+        height: 80px;
+    }
+}/*end of Title above the Cards*/
+/*Css Grid Card Layout*/
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-container{
+    width: 100%;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+.card-container .card{
+    position: relative;
+    height: 400px;
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    border-radius: 10px;
+}
+.card-container .card::before{
+    position: absolute;
+    content: "";
+    top: 99%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#1e4f7a;
+    background-image: linear-gradient(315deg, #31a5d3f6 0%, #1e4f7a 74%);
+    transition: 0.4s;
+}
+.card-container .card:hover::before{
+    top: 50%
+}
+.card-container,.card,.img-box{
+    width: 100%;
+    height: 50%;
+ 
+}
+.card-container,.card,.img-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.trial{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 40%;
+    transition: 0.4s;
+    text-align: center;
+}
+.trial-text{
+    font-size: 16px;
+    padding: 10px 35px;
+    border: 2px solid #602980;
+    color: #602980;
+    text-decoration: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0.3s linear,opacity 0.3s linear;
+}
+.trial-text:nth-child(1){
+    border: 2px solid white;
+    text-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.658);
+    color: white;
+}
+.card-container .card .img-box:hover .trial-text{
+    opacity: 1;
+    visibility: visible;
+}
+.img-box img{
+    border-bottom: 3px solid #245bd1;
+    box-shadow: 0 5px 5px rgba(17, 5, 88, 0.4);
+}
+.img-box::before{
+    position: absolute;
+    content: "";
+    bottom: 99%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:#2d679900;
+    background-image: linear-gradient(315deg, #31a5d34f 0%, #1e4f7a17 74%);
+    transition: 0.4s;
+}
+.img-box:hover::before {
+    bottom: 50%
+}
+.img-box a{
+    position:relative;
+}
+.card-container .card h1 {
+    font-size: 36px;
+    text-align: center;
+    position: relative;
+}
+.card-container .card:hover h1 {
+    transition: 0.3s ease-in-out;
+    color:white;
+    text-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.658);
+}
+.card-container .card p {
+    font-size: 16px;
+    position: relative;
+    padding: 10px 15px;
+}
+.card-container .card:hover p {
+    transition: 0.3s ease-in-out;
+    color:white;
+    text-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.658);
+}
+@media only screen and (max-width: 445px){
+.card-container .card h1 {
+    font-size: 30px;
+}
+}
+/*end of CSS Card Layout*/
+/*Sticky Scroll to top button*/
+.to-top i{
+ color: white;
+}
+.to-top {
+    background: rgba(183, 229, 248, 0.5);
+    position: fixed;
+    bottom: 42px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px 0px 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color:#1f1f1f;
+    text-decoration: none;
+    transition: all .4s;
+    z-index: 999;
+  }
+
+/*end of To-top Button */
+
+/*SVG Wave (clouds)*/
+.wave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80%;
+}
+.wave .shape-fill {
+    fill: #FFFFFF;
+}
+
+.Content{
+    clip-path: polygon(50% 100%, 100% 80%, 100% 0, 0 0, 0 80%);
+    position: relative;
+    width: 100%;
+    height: 500px;
+    font-size: 1rem;
+    background-color: #1e4f7a;
+    color:beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.align{
+    text-align: center;
+}
+.align div{
+    font-size: 4em;
+}
+/*End of SVG Wave Clouds*//*Along with JavaScript Counter*/
+
+/*Fixed image background*/
+.fixed-image{
+    width: 100%;
+    height: 500px;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-image: url("images/both-shoes-on-kids.webp");
+
+    /*For the text inside of the container*/
+    color: white;
+    text-shadow: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fixed-align{
+    text-align: center;
+}
+.fixed-align p{
+    margin-bottom: 20px;
+}
+.fixed-align a{
+    text-decoration:none;
+    color: white;
+    padding: 5px 15px;
+    border: 2px solid white;;
+}
+/*End of Fixed Image Background*/
+
+/* Grid layout w/a picture clip*/
+.bg-4-circle{
+    height: 800px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image:url("images/4k.jpg");
+}
+.Semi-circle{
+    background:#1e4f7a;
+    color: white;
+    top: 0;
+    width: 100%;
+    height: 300px;
+    border-bottom-left-radius: 25% 300px;
+    border-bottom-right-radius: 25% 300px;
+
+    text-align: center;
+    padding-top: 80px;
+}
+
+.Semi-circle p{
+   padding-left: 40px; 
+   padding-right: 40px; 
+   padding-bottom: 20px;
+}
+
+.Semi-circle a{
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+}
+
+/*end of things im trying to figure out -> also known as middle content page*/
+/*Footer*/
+footer{
+    Background-color: #1e73be;
+    width: 100%;
+}
+.foot-container:before{
+    content: "";
+    position: absolute;
+    background: linear-gradient(to top, #31a5d3f6, transparent);
+    width: 100%;
+    height: 285px;
+    bottom: 1;
+    z-index: 0;
+   }
+.foot-container,.item-list,.item-icon{
+    display: flex;
+    z-index: 1;
+}
+.item-list{
+    display: inline-block; 
+    flex-direction: column;
+    list-style-type: none;
+    margin: 5px;
+    padding: 10px;
+
+}
+.item:not(:first-child){
+    margin: 5px;
+    text-shadow: 1px 1px 2.5px rgba(0, 0, 0, 0.658);
+    border-bottom: 2px dashed beige;
+    padding:5px
+
+}
+.item:not(:first-child):hover{
+    border-bottom: 2px dashed rgba(130, 206, 250, 0.973);; 
+    transition: 0.3s ease-in-out;
+
+}
+.item:nth-child(n+2) a{
+    text-decoration: none;
+    color: rgb(190, 226, 238);
+
+}
+.item:nth-child(n+2) a:hover{
+   color:rgb(117, 210, 241);
+   transition: 0.4s ease-in-out;
+}
+.item:first-child{
+    margin: 10px 40px;
+}
+.item:first-child a{ 
+ text-decoration: none;   
+ text-align: center;
+ background-color: rgba(17, 34, 51, 0.925);
+ padding: 10px;
+ border-radius: 5px;
+ border-bottom: 1px solid beige;
+ color: beige;
+ text-shadow: 1px 1px 4.5px rgba(255, 192, 203, 0.548);
+}
+.item:first-child a:hover{ 
+    background-color: rgba(25, 61, 95, 0.925);
+    padding:9.5px;
+    transition: 0.5s ease;
+}
+.blank{
+    flex-grow: 1;
+}
+.item-icon{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 10px; 
+    padding: 10px;
+}
+
+.icon a{
+    background-color: #23252B;
+    border-radius: 100%;
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+    color: beige;
+    font-size: 1.7em;
+
+  }
+
+.icon:nth-child(1) a >:hover{
+    color:#0495ce;
+    transition: 0.3s ease-in-out;  
+}
+.icon:nth-child(2) a >:hover{
+    color:#f75a9b;
+    transition: 0.3s ease-in-out;  
+}
+.icon:nth-child(3) a >:hover{
+color:#5acaf7;
+transition: 0.3s ease-in-out;  
+}
+
+.footer-bottom{
+    Background-color: #1e4f7a;
+    color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index:2;
+}
+/*Media query for Footer direction*/
+@media only screen and (max-width: 1080px){
+    .foot-container,.item-list,.item-icon{
+        align-items: center;
+    }
+    .foot-container{
+        flex-direction: column;
+    }
+    .item:first-child{
+        padding:15px 40px;
+        margin: 5px;
+    }
+    .item:not(:first-child){
+        display:none;
+    }
+    .item-icon{
+        flex-direction: row;
+    }
+    .icon{
+        margin: 10px;
+    }
+    .foot-container:before{
+    height:482px;
+    }
+
+}
